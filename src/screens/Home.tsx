@@ -2,12 +2,12 @@ import React from 'react';
 import {View} from 'react-native';
 
 // components
-import HomeHeader from '../components/atoms/HomeHeader';
+import HomePage from '../components/pages/HomePage';
 
 const Home = () => {
   return (
     <View>
-      <HomeHeader />
+      <HomePage />
     </View>
   );
 };
