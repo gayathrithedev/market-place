@@ -5,6 +5,7 @@ import {StyleSheet, View} from 'react-native';
 import HomeHeader from '../atoms/HomeHeader';
 import SearchBar from '../atoms/SearchBar';
 import {colors} from '../../theme/colors';
+import CategoryList from '../organisms/CategoryList';
 
 const HomeTemplate = () => {
   return (
@@ -12,6 +13,9 @@ const HomeTemplate = () => {
       <HomeHeader />
       <View style={styles.searchBarContainer}>
         <SearchBar />
+      </View>
+      <View style={styles.searchBarContainer}>
+        <CategoryList />
       </View>
     </View>
   );
