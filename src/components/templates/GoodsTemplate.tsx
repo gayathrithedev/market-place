@@ -7,10 +7,12 @@ import GoodsList from '../organisms/GoodsList';
 
 // theme
 import {colors} from '../../theme/colors';
+import CommonHeader from '../atoms/CommonHeader';
 
 const GoodsTemplate = () => {
   return (
     <View style={styles.container}>
+      <CommonHeader title="Home Goods" />
       <View style={styles.searchBarContainer}>
         <GoodsList />
       </View>

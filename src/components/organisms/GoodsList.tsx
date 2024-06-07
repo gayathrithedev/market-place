@@ -1,6 +1,6 @@
 // globals
 import React from 'react';
-import {ScrollView, StyleSheet} from 'react-native';
+import {StyleSheet, View} from 'react-native';
 
 // data
 import {homeGoodsData} from '../../data/homeGoodsData';
@@ -10,16 +10,13 @@ import GoodsItem from '../atoms/GoodsItem';
 
 const GoodsList = () => {
   return (
-    <ScrollView
-      style={styles.listRow}
-      horizontal
-      showsHorizontalScrollIndicator={false}>
+    <View style={styles.listRow}>
       {homeGoodsData?.map(item => (
-        <React.Fragment key={item.id}>
+        <View key={item.id} style={styles.listItemWrapper}>
           <GoodsItem info={item} />
-        </React.Fragment>
+        </View>
       ))}
-    </ScrollView>
+    </View>
   );
 };
 
@@ -27,6 +24,9 @@ const styles = StyleSheet.create({
   listRow: {
     flexDirection: 'row',
     flexWrap: 'wrap',
+  },
+  listItemWrapper: {
+    width: '50%',
   },
 });
 

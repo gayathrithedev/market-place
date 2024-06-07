@@ -9,6 +9,7 @@ import CategoryList from '../organisms/CategoryList';
 
 // theme
 import {colors} from '../../theme/colors';
+import HomeBanner from '../atoms/HomeBanner';
 
 // types
 type Props = {
@@ -25,6 +26,9 @@ const HomeTemplate = (props: Props) => {
       </View>
       <View style={styles.searchBarContainer}>
         <CategoryList data={data} />
+      </View>
+      <View style={styles.searchBarContainer}>
+        <HomeBanner />
       </View>
     </View>
   );

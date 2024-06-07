@@ -16,7 +16,6 @@ import {
 } from '@fortawesome/free-solid-svg-icons';
 
 // screens
-import Home from '../screens/Home';
 import Settings from '../screens/Settings';
 import Wallet from '../screens/Wallet';
 import Cart from '../screens/Cart';
