@@ -1,6 +1,6 @@
 // globals
 import React from 'react';
-import {StyleSheet, View} from 'react-native';
+import {StyleSheet, View, ScrollView} from 'react-native';
 
 // components
 import HomeHeader from '../atoms/HomeHeader';
@@ -22,7 +22,7 @@ type Props = {
 const HomeTemplate = (props: Props) => {
   const {data} = props;
   return (
-    <View style={styles.container}>
+    <ScrollView style={styles.container}>
       <HomeHeader />
       <View style={styles.searchBarContainer}>
         <SearchBar />
@@ -39,7 +39,7 @@ const HomeTemplate = (props: Props) => {
       <View style={styles.searchBarContainer}>
         <PlpDisplayList data={plpSectionData} />
       </View>
-    </View>
+    </ScrollView>
   );
 };
 

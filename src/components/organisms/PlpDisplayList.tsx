@@ -14,6 +14,7 @@ const PlpDisplayList = (props: Props) => {
   const {data} = props;
   return (
     <FlatList
+      numColumns={2}
       data={data}
       renderItem={item => <PlpDisplayItem info={item} />}
       keyExtractor={({id}) => id}
