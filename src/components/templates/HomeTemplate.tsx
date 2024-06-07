@@ -10,6 +10,7 @@ import CategoryList from '../organisms/CategoryList';
 // theme
 import {colors} from '../../theme/colors';
 import HomeBanner from '../atoms/HomeBanner';
+import PlpSection from '../molecules/PlpSection';
 
 // types
 type Props = {
@@ -30,6 +31,9 @@ const HomeTemplate = (props: Props) => {
       <View style={styles.searchBarContainer}>
         <HomeBanner />
       </View>
+      <View style={styles.searchBarContainer}>
+        <PlpSection />
+      </View>
     </View>
   );
 };
@@ -40,7 +44,7 @@ const styles = StyleSheet.create({
     backgroundColor: colors.white,
   },
   searchBarContainer: {
-    paddingTop: 16,
+    paddingTop: 20,
   },
 });
 
