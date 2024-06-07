@@ -11,6 +11,8 @@ import CategoryList from '../organisms/CategoryList';
 import {colors} from '../../theme/colors';
 import HomeBanner from '../atoms/HomeBanner';
 import PlpSection from '../molecules/PlpSection';
+import PlpDisplayList from '../organisms/PlpDisplayList';
+import {plpSectionData} from '../../data/plpSectionData';
 
 // types
 type Props = {
@@ -33,6 +35,9 @@ const HomeTemplate = (props: Props) => {
       </View>
       <View style={styles.searchBarContainer}>
         <PlpSection />
+      </View>
+      <View style={styles.searchBarContainer}>
+        <PlpDisplayList data={plpSectionData} />
       </View>
     </View>
   );
