@@ -1,8 +1,13 @@
 // globals
 import React from 'react';
-import {View, Text, Image, StyleSheet} from 'react-native';
+import {Text, Image, StyleSheet, TouchableOpacity} from 'react-native';
+
+// theme
 import {fonts} from '../../theme/fonts';
 import {colors} from '../../theme/colors';
+
+// navigation
+import {useNavigation} from '@react-navigation/native';
 
 // types
 type Props = {
@@ -11,13 +16,19 @@ type Props = {
 
 const CategoryItem = (props: Props) => {
   const {categoryInfo} = props;
+  const {navigate} = useNavigation();
+
+  const navigateToGoods = () => {
+    navigate('Goods');
+  };
+
   return (
-    <View style={styles.container}>
+    <TouchableOpacity style={styles.container} onPress={navigateToGoods}>
       <Image source={{uri: categoryInfo?.category_img}} style={styles.img} />
       <Text style={[fonts.onest500, styles.categoryName]}>
         {categoryInfo.name}
       </Text>
-    </View>
+    </TouchableOpacity>
   );
 };
 

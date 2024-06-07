@@ -5,10 +5,13 @@ import {View} from 'react-native';
 // components
 import HomeTemplate from '../templates/HomeTemplate';
 
+// data
+import {categoriesList} from '../../data/categoriesData';
+
 const HomePage = () => {
   return (
     <View>
-      <HomeTemplate />
+      <HomeTemplate data={categoriesList} />
     </View>
   );
 };

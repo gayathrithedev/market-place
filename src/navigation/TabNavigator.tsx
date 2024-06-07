@@ -22,12 +22,13 @@ import Wallet from '../screens/Wallet';
 import Cart from '../screens/Cart';
 import Wishlist from '../screens/Wishlist';
 import {colors} from '../theme/colors';
+import StackNavigator from './StackNavigator';
 
 const Tab = createBottomTabNavigator();
 
 const getIcons = (name: string) => {
   switch (name) {
-    case 'Home':
+    case 'Root':
       return faHome;
     case 'Wallet':
       return faWallet;
@@ -60,7 +61,7 @@ const TabNavigator = () => {
         tabBarInactiveTintColor: 'gray',
         headerShown: false,
       })}>
-      <Tab.Screen name="Home" component={Home} />
+      <Tab.Screen name="Root" component={StackNavigator} />
       <Tab.Screen name="Wallet" component={Wallet} />
       <Tab.Screen name="Cart" component={Cart} />
       <Tab.Screen name="Wishlist" component={Wishlist} />

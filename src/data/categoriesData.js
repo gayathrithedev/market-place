@@ -4,32 +4,6 @@ export const categoriesList = [
     name: 'Home',
     category_img:
       'https://www.dropbox.com/scl/fi/fnrgob8nwfz1dd3rhdpci/home.jpg?rlkey=loj8jc0muu9j6y1sshpqnr43m&st=rykc1cq0&raw=1',
-    sub_categories: [
-      {
-        id: 1.1,
-        name: 'Textile',
-      },
-      {
-        id: 1.2,
-        name: 'Dishes',
-      },
-      {
-        id: 1.3,
-        name: 'Furniture',
-      },
-      {
-        id: 1.4,
-        name: 'Light',
-      },
-      {
-        id: 1.5,
-        name: 'Decor',
-      },
-      {
-        id: 1.6,
-        name: 'Plants',
-      },
-    ],
   },
   {
     id: 2,

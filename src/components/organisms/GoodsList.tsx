@@ -2,24 +2,21 @@
 import React from 'react';
 import {ScrollView, StyleSheet} from 'react-native';
 
-// components
-import CategoryItem from '../atoms/CategoryItem';
+// data
+import {homeGoodsData} from '../../data/homeGoodsData';
 
-// types
-type Props = {
-  data: any;
-};
+// component
+import GoodsItem from '../atoms/GoodsItem';
 
-const CategoryList = (props: Props) => {
-  const {data} = props;
+const GoodsList = () => {
   return (
     <ScrollView
       style={styles.listRow}
       horizontal
       showsHorizontalScrollIndicator={false}>
-      {data?.map((item: any) => (
+      {homeGoodsData?.map(item => (
         <React.Fragment key={item.id}>
-          <CategoryItem categoryInfo={item} />
+          <GoodsItem info={item} />
         </React.Fragment>
       ))}
     </ScrollView>
@@ -29,7 +26,8 @@ const CategoryList = (props: Props) => {
 const styles = StyleSheet.create({
   listRow: {
     flexDirection: 'row',
+    flexWrap: 'wrap',
   },
 });
 
-export default CategoryList;
+export default GoodsList;
