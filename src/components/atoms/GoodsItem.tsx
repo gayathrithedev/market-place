@@ -42,7 +42,7 @@ const styles = StyleSheet.create({
     color: colors.black,
   },
   img: {
-    width: 80,
+    width: 100,
     height: 80,
     alignSelf: 'flex-end',
   },

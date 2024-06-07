@@ -50,4 +50,23 @@ export const plpSectionData = [
       },
     ],
   },
+  {
+    id: 4,
+    name: 'Snake Plant',
+    price: '£ 55',
+    images: [
+      {
+        uri: 'https://www.dropbox.com/scl/fi/6tjbihh5cz8768btvhoup/plant1.jpg?rlkey=hzur7b3ykxq86cjicl69gvphv&st=6pve6oeo&raw=1',
+      },
+      {
+        uri: 'https://www.dropbox.com/scl/fi/0x0xukymq0bh2ekwtlzre/plant2.jpg?rlkey=z86ml2a7ns16robd2c29fuche&st=axmzaren&raw=1',
+      },
+      {
+        uri: 'https://www.dropbox.com/scl/fi/mm6onq9alop5q82xfd45g/plant4.jpg?rlkey=5ucegeee1ryj8govfjl31mlyj&st=eyitibuk&raw=1',
+      },
+      {
+        uri: 'https://www.dropbox.com/scl/fi/5mhdqi1a11t9pc4tyapdw/plant5.jpg?rlkey=94jg01e4i6s157t3al9p936wq&st=9kw6umw7&raw=1',
+      },
+    ],
+  },
 ];
