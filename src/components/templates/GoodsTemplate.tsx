@@ -8,6 +8,7 @@ import GoodsList from '../organisms/GoodsList';
 // theme
 import {colors} from '../../theme/colors';
 import CommonHeader from '../atoms/CommonHeader';
+import BrandsList from '../organisms/BrandsList';
 
 const GoodsTemplate = () => {
   return (
@@ -15,6 +16,9 @@ const GoodsTemplate = () => {
       <CommonHeader title="Home Goods" />
       <View style={styles.searchBarContainer}>
         <GoodsList />
+      </View>
+      <View style={styles.searchBarContainer}>
+        <BrandsList />
       </View>
     </View>
   );
@@ -26,7 +30,7 @@ const styles = StyleSheet.create({
     backgroundColor: colors.white,
   },
   searchBarContainer: {
-    paddingTop: 16,
+    paddingTop: 20,
   },
 });
 
