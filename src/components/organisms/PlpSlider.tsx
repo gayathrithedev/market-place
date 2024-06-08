@@ -23,11 +23,11 @@ import {colors} from '../../theme/colors';
 
 // types
 type Props = {
-  images: any;
+  data: any;
 };
 
 const PlpSlider = (props: Props) => {
-  const {images} = props;
+  const {data} = props;
   const windowWidth = useWindowDimensions().width / 2;
   const scrollOffsetValue = useSharedValue<number>(0);
   const [isVertical, setIsVertical] = React.useState(false);
@@ -58,7 +58,7 @@ const PlpSlider = (props: Props) => {
       testID={'xxx'}
       autoPlay={isAutoPlay}
       autoPlayInterval={isFast ? 100 : 2000}
-      data={images}
+      data={data.images}
       onScrollStart={() => {
         console.log('===1');
       }}
@@ -74,9 +74,12 @@ const PlpSlider = (props: Props) => {
           imageStyle={styles.image}
           resizeMode="cover">
           <View style={styles.favIconContainer}>
-            <FontAwesomeIcon icon={faHeart} color={`${colors.grayLight}50`} />
+            <FontAwesomeIcon
+              icon={faHeart}
+              color={data.isWishlisted ? colors.red : `${colors.grayLight}50`}
+            />
           </View>
-          <View></View>
+          <View />
         </ImageBackground>
       )}
     />
