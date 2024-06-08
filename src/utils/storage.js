@@ -13,6 +13,9 @@ const getLoginInfo = async () => {
     const value = await AsyncStorage.getItem('my-key');
     if (value !== null) {
       // value previously stored
+      return true;
+    } else {
+        return false;
     }
   } catch (e) {
     // error reading value
