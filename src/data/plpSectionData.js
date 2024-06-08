@@ -3,6 +3,13 @@ export const plpSectionData = [
     id: 1,
     name: 'Flower Vase',
     price: '£ 120',
+    tags: ['Best product', 'Selection 97%'],
+    isWishlisted: true,
+    reviews: {
+      rating: 4.9,
+      users: 200,
+    },
+    desc: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam eu felis at massa imperdiet luctus. Integer felis turpis, suscipit nec dictum vel, tincidunt non justo. Aliquam blandit egestas urna nec laoreet. Praesent fermentum, lacus vitae posuere condimentum, risus turpis tristique arcu, id ultricies nisl leo non ligula. Quisque et cursus mauris.',
     images: [
       {
         uri: 'https://www.dropbox.com/scl/fi/couj3ex9md07l4v4p54u3/vase1.jpg?rlkey=76b8sxjn4fdov9tnhqtd3vhqq&st=1a9qqpdh&raw=1',
@@ -19,6 +26,13 @@ export const plpSectionData = [
     id: 2,
     name: 'Yellow Chair',
     price: '£ 400',
+    tags: ['Best product', 'Selection 97%'],
+    isWishlisted: false,
+    reviews: {
+      rating: 4.9,
+      users: 200,
+    },
+    desc: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam eu felis at massa imperdiet luctus. Integer felis turpis, suscipit nec dictum vel, tincidunt non justo. Aliquam blandit egestas urna nec laoreet. Praesent fermentum, lacus vitae posuere condimentum, risus turpis tristique arcu, id ultricies nisl leo non ligula. Quisque et cursus mauris.',
     images: [
       {
         uri: 'https://www.dropbox.com/scl/fi/t046s9o85o3zcgewff6rh/chair1.jpg?rlkey=q1vrh28xd1xb83wra8lrpxsi8&st=c5azunt2&raw=1',
@@ -38,6 +52,13 @@ export const plpSectionData = [
     id: 3,
     name: 'Ceramic Bowl',
     price: '£ 30',
+    tags: ['Best product', 'Selection 97%'],
+    isWishlisted: false,
+    reviews: {
+      rating: 4.9,
+      users: 200,
+    },
+    desc: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam eu felis at massa imperdiet luctus. Integer felis turpis, suscipit nec dictum vel, tincidunt non justo. Aliquam blandit egestas urna nec laoreet. Praesent fermentum, lacus vitae posuere condimentum, risus turpis tristique arcu, id ultricies nisl leo non ligula. Quisque et cursus mauris.',
     images: [
       {
         uri: 'https://www.dropbox.com/scl/fi/7t1cnb4qa12tqp04tn6ak/bowl1.jpg?rlkey=gpwd8lg616c80m5kyoutgsc6d&st=oxfvjs4v&raw=1',
@@ -54,6 +75,13 @@ export const plpSectionData = [
     id: 4,
     name: 'Snake Plant',
     price: '£ 55',
+    tags: ['Best product', 'Selection 97%'],
+    isWishlisted: false,
+    reviews: {
+      rating: 4.9,
+      users: 200,
+    },
+    desc: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam eu felis at massa imperdiet luctus. Integer felis turpis, suscipit nec dictum vel, tincidunt non justo. Aliquam blandit egestas urna nec laoreet. Praesent fermentum, lacus vitae posuere condimentum, risus turpis tristique arcu, id ultricies nisl leo non ligula. Quisque et cursus mauris.',
     images: [
       {
         uri: 'https://www.dropbox.com/scl/fi/6tjbihh5cz8768btvhoup/plant1.jpg?rlkey=hzur7b3ykxq86cjicl69gvphv&st=6pve6oeo&raw=1',

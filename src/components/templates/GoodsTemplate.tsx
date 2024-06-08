@@ -13,7 +13,7 @@ import BrandsList from '../organisms/BrandsList';
 const GoodsTemplate = () => {
   return (
     <View style={styles.container}>
-      <CommonHeader title="Home Goods" />
+      <CommonHeader title="Home Goods" showCta={false} />
       <View style={styles.searchBarContainer}>
         <GoodsList />
       </View>

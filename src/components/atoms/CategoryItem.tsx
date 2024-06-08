@@ -35,15 +35,15 @@ const CategoryItem = (props: Props) => {
 const styles = StyleSheet.create({
   container: {
     alignItems: 'center',
+    paddingRight: 16,
   },
   img: {
-    marginRight: 16,
-    width: 100,
-    height: 100,
+    width: 120,
+    height: 120,
     borderRadius: 8,
   },
   categoryName: {
-    fontSize: 12,
+    fontSize: 14,
     paddingTop: 8,
     color: colors.black,
   },

@@ -1,12 +1,24 @@
+// globals
 import React from 'react';
-import {ImageBackground, StyleSheet, View} from 'react-native';
+import {
+  ImageBackground,
+  StyleSheet,
+  View,
+  useWindowDimensions,
+} from 'react-native';
+
+// carousel
 import type {ICarouselInstance} from 'react-native-reanimated-carousel';
 import Carousel from 'react-native-reanimated-carousel';
 
-import {Dimensions, useWindowDimensions} from 'react-native';
+// animated
 import {useSharedValue} from 'react-native-reanimated';
+
+// icons
 import {FontAwesomeIcon} from '@fortawesome/react-native-fontawesome';
 import {faHeart} from '@fortawesome/free-solid-svg-icons';
+
+// theme
 import {colors} from '../../theme/colors';
 
 // types
