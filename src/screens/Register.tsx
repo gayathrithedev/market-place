@@ -15,6 +15,8 @@ import {Formik} from 'formik';
 import * as yup from 'yup';
 import {colors} from '../theme/colors';
 import {fonts} from '../theme/fonts';
+import {signUp} from '../utils/firebase';
+import {useNavigation} from '@react-navigation/native';
 
 // create a validation schema using Yup
 const validationSchema = yup.object().shape({
@@ -29,10 +31,17 @@ const validationSchema = yup.object().shape({
     .required('Password is required'),
 });
 
-const RegistrationForm = () => {
+const SignUp = () => {
+  const {navigate} = useNavigation();
+
   const handleFormSubmit = values => {
     // Handle form submission logic here
     console.log(values);
+    signUp(values.email, values.password);
+  };
+
+  const navigateToLogin = () => {
+    navigate('Login');
   };
 
   return (
@@ -69,6 +78,7 @@ const RegistrationForm = () => {
               onChangeText={handleChange('email')}
               value={values.email}
               style={styles.input}
+              autoCapitalize="none"
             />
             {errors.email && <Text style={styles.error}>{errors.email}</Text>}
 
@@ -78,6 +88,7 @@ const RegistrationForm = () => {
               onChangeText={handleChange('password')}
               value={values.password}
               style={styles.input}
+              autoCapitalize="none"
             />
             {errors.password && (
               <Text style={styles.error}>{errors.password}</Text>
@@ -93,7 +104,7 @@ const RegistrationForm = () => {
               <Text style={[fonts.onest400, styles.desc]}>
                 Already have an account?
               </Text>
-              <TouchableOpacity>
+              <TouchableOpacity onPress={navigateToLogin}>
                 <Text style={[fonts.onest500, styles.loginText]}>Login</Text>
               </TouchableOpacity>
             </View>
@@ -117,7 +128,7 @@ const styles = StyleSheet.create({
   desc: {
     fontSize: 16,
     color: colors.black,
-    paddingRight: 24,
+    paddingRight: 16,
   },
   loginContainer: {
     flexDirection: 'row',
@@ -178,4 +189,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default RegistrationForm;
+export default SignUp;
