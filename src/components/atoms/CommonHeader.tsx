@@ -39,6 +39,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   headerTitle: {
+    paddingLeft: 24,
     fontSize: 16,
     color: colors.black,
   },
