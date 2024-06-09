@@ -1,25 +1,21 @@
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
-const storeLoginInfo = async value => {
+const setUserinfo = async value => {
   try {
-    await AsyncStorage.setItem('my-key', value);
+    const jsonValue = JSON.stringify(value);
+    await AsyncStorage.setItem('user', jsonValue);
   } catch (e) {
     // saving error
   }
 };
 
-const getLoginInfo = async () => {
+const getUserInfo = async () => {
   try {
-    const value = await AsyncStorage.getItem('my-key');
-    if (value !== null) {
-      // value previously stored
-      return true;
-    } else {
-        return false;
-    }
+    const jsonValue = await AsyncStorage.getItem('user');
+    return jsonValue != null ? JSON.parse(jsonValue) : null;
   } catch (e) {
     // error reading value
   }
 };
 
-export {storeLoginInfo, getLoginInfo};
+export {setUserinfo, getUserInfo};

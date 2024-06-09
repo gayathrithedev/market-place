@@ -9,12 +9,12 @@ import {NavigationContainer} from '@react-navigation/native';
 import auth from '@react-native-firebase/auth';
 
 // utils
-import {getLoginInfo} from '../utils/storage';
 
 // navigators
 import TabNavigator from './TabNavigator';
 import AuthNavigator from './AuthNavigator';
 import {initializeFirebase} from '../utils/firebase';
+import {setUserinfo} from '../utils/storage';
 
 const RootNavigator = () => {
   // Set an initializing state whilst Firebase connects
@@ -23,6 +23,7 @@ const RootNavigator = () => {
 
   // Handle user state changes
   function onAuthStateChanged(user) {
+    setUserinfo(user);
     setUser(user);
     if (initializing) {
       setInitializing(false);
