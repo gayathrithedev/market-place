@@ -35,7 +35,7 @@ const ProductSlider = (props: Props) => {
   const scrollOffsetValue = useSharedValue<number>(0);
   const [isVertical, setIsVertical] = React.useState(false);
   const [isFast, setIsFast] = React.useState(false);
-  const [isAutoPlay, setIsAutoPlay] = React.useState(false);
+  const [isAutoPlay, setIsAutoPlay] = React.useState(true);
   const [isPagingEnabled, setIsPagingEnabled] = React.useState(true);
   const ref = React.useRef<ICarouselInstance>(null);
   const [currentIndex, setCurrentIndex] = useState(0);
