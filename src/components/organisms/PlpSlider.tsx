@@ -1,11 +1,6 @@
 // globals
 import React from 'react';
-import {
-  ImageBackground,
-  StyleSheet,
-  View,
-  useWindowDimensions,
-} from 'react-native';
+import {useWindowDimensions} from 'react-native';
 
 // carousel
 import type {ICarouselInstance} from 'react-native-reanimated-carousel';
@@ -13,13 +8,7 @@ import Carousel from 'react-native-reanimated-carousel';
 
 // animated
 import {useSharedValue} from 'react-native-reanimated';
-
-// icons
-import {FontAwesomeIcon} from '@fortawesome/react-native-fontawesome';
-import {faHeart} from '@fortawesome/free-solid-svg-icons';
-
-// theme
-import {colors} from '../../theme/colors';
+import PlpSliderItem from '../molecules/PlpSliderItem';
 
 // types
 type Props = {
@@ -68,35 +57,9 @@ const PlpSlider = (props: Props) => {
       onConfigurePanGesture={g => g.enabled(false)}
       pagingEnabled={true}
       onSnapToItem={index => console.log('current index:', index)}
-      renderItem={({index, item}) => (
-        <ImageBackground
-          source={{uri: item.uri}}
-          imageStyle={styles.image}
-          resizeMode="cover">
-          <View style={styles.favIconContainer}>
-            <FontAwesomeIcon
-              icon={faHeart}
-              color={data.isWishlisted ? colors.red : `${colors.grayLight}50`}
-            />
-          </View>
-          <View />
-        </ImageBackground>
-      )}
+      renderItem={({index, item}) => <PlpSliderItem data={item} />}
     />
   );
 };
-
-const styles = StyleSheet.create({
-  image: {
-    width: '86%',
-    height: 200,
-    borderRadius: 12,
-  },
-  favIconContainer: {
-    alignItems: 'flex-end',
-    marginRight: 36,
-    marginTop: 8,
-  },
-});
 
 export default PlpSlider;

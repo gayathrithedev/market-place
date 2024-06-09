@@ -21,6 +21,7 @@ import {fonts} from '../../theme/fonts';
 import {colors} from '../../theme/colors';
 import {FontAwesomeIcon} from '@fortawesome/react-native-fontawesome';
 import {faStar} from '@fortawesome/free-solid-svg-icons';
+import ProductSliderItem from '../molecules/ProductSliderItem';
 
 // theme
 
@@ -74,16 +75,7 @@ const ProductSlider = (props: Props) => {
         onConfigurePanGesture={g => g.enabled(false)}
         pagingEnabled={isPagingEnabled}
         onSnapToItem={index => setCurrentIndex(index)}
-        renderItem={({index, item}) => (
-          <View>
-            <ImageBackground
-              source={{uri: item.uri}}
-              style={styles.image}
-              imageStyle={styles.bgStyle}
-              resizeMode="stretch"
-            />
-          </View>
-        )}
+        renderItem={({index, item}) => <ProductSliderItem data={item} />}
       />
       <View style={styles.pagContainer}>
         <Pagination active={currentIndex} length={data.images.length} />
@@ -191,13 +183,6 @@ const styles = StyleSheet.create({
   },
   slideContainer: {
     alignItems: 'center',
-  },
-  image: {
-    width: '96%',
-    height: 470,
-  },
-  bgStyle: {
-    borderRadius: 12,
   },
   favIconContainer: {
     alignItems: 'flex-end',

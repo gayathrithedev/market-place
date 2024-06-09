@@ -1,5 +1,5 @@
 // globals
-import React from 'react';
+import React, {useState} from 'react';
 import {Text, Image, StyleSheet, TouchableOpacity} from 'react-native';
 
 // theme
@@ -9,6 +9,9 @@ import {colors} from '../../theme/colors';
 // navigation
 import {useNavigation} from '@react-navigation/native';
 
+// loader
+import SkeletonPlaceholder from 'react-native-skeleton-placeholder';
+
 // types
 type Props = {
   categoryInfo: any;
@@ -16,18 +19,38 @@ type Props = {
 
 const CategoryItem = (props: Props) => {
   const {categoryInfo} = props;
+  const [loading, setLoading] = useState(false);
   const {navigate} = useNavigation();
 
   const navigateToGoods = () => {
     navigate('Goods');
   };
 
+  const startImageLoading = () => {
+    setLoading(true);
+  };
+  const endImageLoading = () => {
+    setLoading(false);
+  };
+
   return (
     <TouchableOpacity style={styles.container} onPress={navigateToGoods}>
-      <Image source={{uri: categoryInfo?.category_img}} style={styles.img} />
-      <Text style={[fonts.onest500, styles.categoryName]}>
-        {categoryInfo.name}
-      </Text>
+      {loading ? (
+        <SkeletonPlaceholder borderRadius={4}>
+          <SkeletonPlaceholder.Item width={120} height={120} borderRadius={8} />
+        </SkeletonPlaceholder>
+      ) : null}
+      <Image
+        onLoadStart={startImageLoading}
+        onLoadEnd={endImageLoading}
+        source={{uri: categoryInfo?.category_img}}
+        style={styles.img}
+      />
+      {!loading ? (
+        <Text style={[fonts.onest500, styles.categoryName]}>
+          {categoryInfo.name}
+        </Text>
+      ) : null}
     </TouchableOpacity>
   );
 };
