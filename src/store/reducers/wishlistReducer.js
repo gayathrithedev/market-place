@@ -1,3 +1,4 @@
+import {plpSectionData} from '../../data/plpSectionData';
 import {
   ADD_TO_WISHLIST,
   REMOVE_FROM_WISHLIST,

@@ -1,5 +1,5 @@
 // globals
-import React from 'react';
+import React, {useDebugValue} from 'react';
 import {View, Text, StyleSheet, TouchableOpacity} from 'react-native';
 
 // icons
@@ -8,16 +8,19 @@ import {faArrowLeft, faHeart, faShare} from '@fortawesome/free-solid-svg-icons';
 import {fonts} from '../../theme/fonts';
 import {colors} from '../../theme/colors';
 import {useNavigation} from '@react-navigation/native';
+import {useDispatch, useSelector} from 'react-redux';
 
 // types
 type Props = {
   title: string;
   showCta: boolean;
   isWishlisted: boolean;
+  onClickWishList: any;
+  onClickShare: any;
 };
 
 const CommonHeader = (props: Props) => {
-  const {title, showCta, isWishlisted} = props;
+  const {title, showCta, isWishlisted, onClickWishList, onClickShare} = props;
   const navigation = useNavigation();
 
   const navigateToBack = () => {
@@ -35,15 +38,19 @@ const CommonHeader = (props: Props) => {
       </View>
       {showCta ? (
         <View style={styles.headerRow}>
-          <FontAwesomeIcon
-            icon={faHeart}
-            color={isWishlisted ? colors.red : `${colors.gray}50`}
-          />
-          <FontAwesomeIcon
-            icon={faShare}
-            color={colors.black}
-            style={styles.shareIcon}
-          />
+          <TouchableOpacity onPress={onClickWishList}>
+            <FontAwesomeIcon
+              icon={faHeart}
+              color={isWishlisted ? colors.red : `${colors.gray}50`}
+            />
+          </TouchableOpacity>
+          <TouchableOpacity onPress={onClickShare}>
+            <FontAwesomeIcon
+              icon={faShare}
+              color={colors.black}
+              style={styles.shareIcon}
+            />
+          </TouchableOpacity>
         </View>
       ) : null}
     </View>

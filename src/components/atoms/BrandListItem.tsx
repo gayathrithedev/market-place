@@ -1,8 +1,13 @@
 // globals
-import React from 'react';
+import React, {useState} from 'react';
 import {ImageBackground, StyleSheet, Text, View} from 'react-native';
+
+// theme
 import {fonts} from '../../theme/fonts';
 import {colors} from '../../theme/colors';
+
+// loader
+import SkeletonPlaceholder from 'react-native-skeleton-placeholder';
 
 // types
 type Props = {
@@ -11,16 +16,37 @@ type Props = {
 
 const BrandListItem = (props: Props) => {
   const {data} = props;
-  console.log(data, '=======');
+  const [loading, setLoading] = useState(false);
+  const startImageLoading = () => {
+    setLoading(true);
+  };
+  const endImageLoading = () => {
+    setLoading(false);
+  };
   return (
-    <ImageBackground
-      source={{uri: data.uri}}
-      style={styles.bgStyle}
-      imageStyle={styles.imgStyle}>
-      <View style={styles.brandInfo}>
-        <Text style={[fonts.onest800, styles.brandName]}>{data.name}</Text>
-      </View>
-    </ImageBackground>
+    <>
+      {loading ? (
+        <View style={{alignSelf: 'flex-end'}}>
+          <SkeletonPlaceholder borderRadius={12}>
+            <SkeletonPlaceholder.Item
+              width={'100%'}
+              height={'100%'}
+              borderRadius={8}
+            />
+          </SkeletonPlaceholder>
+        </View>
+      ) : null}
+      <ImageBackground
+        onLoadStart={startImageLoading}
+        onLoadEnd={endImageLoading}
+        source={{uri: data.uri}}
+        style={styles.bgStyle}
+        imageStyle={styles.imgStyle}>
+        <View style={styles.brandInfo}>
+          <Text style={[fonts.onest800, styles.brandName]}>{data.name}</Text>
+        </View>
+      </ImageBackground>
+    </>
   );
 };
 

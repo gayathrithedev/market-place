@@ -8,15 +8,44 @@ import {
   Text,
   TouchableOpacity,
 } from 'react-native';
-import CommonHeader from '../components/atoms/CommonHeader';
 import {useRoute} from '@react-navigation/native';
+
+// redux
+import {useDispatch, useSelector} from 'react-redux';
+
+// theme
 import {colors} from '../theme/colors';
-import ProductSlider from '../components/organisms/ProductSlider';
 import {fonts} from '../theme/fonts';
+
+// component
+import ProductSlider from '../components/organisms/ProductSlider';
+import CommonHeader from '../components/atoms/CommonHeader';
+
+// actions
+import {addToWishlist, removeWishlist} from '../store/actions/wishlistActions';
 
 const ProductDetail = () => {
   const {params} = useRoute();
   const {data} = params;
+
+  const {products} = useSelector((state: any) => state.wishlist);
+  const dispatch = useDispatch();
+  const filterProduct = products.filter(item => item === data.id);
+  const isWishlisted = filterProduct.length > 0;
+
+  const addOrRemoveToWishlist = () => {
+    if (isWishlisted) {
+      const filterProducts = products.filter(
+        item => item.isWishlisted !== data.isWishlisted,
+      );
+      removeWishlist(filterProducts);
+    } else {
+      const updateProducts = [...products, data.id];
+      addToWishlist(updateProducts);
+    }
+  };
+  const onShare = () => {};
+
   return (
     <View style={styles.wrapper}>
       <View style={styles.headContainer}>
@@ -24,6 +53,9 @@ const ProductDetail = () => {
           title={data.name}
           showCta={true}
           isWishlisted={data.isWishlisted}
+          data={data}
+          onClickWishList={addOrRemoveToWishlist}
+          onClickShare={onShare}
         />
         <ScrollView style={styles.container}>
           <ProductSlider data={data} />
