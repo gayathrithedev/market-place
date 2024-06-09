@@ -39,7 +39,6 @@ const Login = () => {
 
   const handleFormSubmit = values => {
     // Handle form submission logic here
-    console.log(values);
     login(values.email, values.password);
   };
 

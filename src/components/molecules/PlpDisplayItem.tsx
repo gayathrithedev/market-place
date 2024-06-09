@@ -29,7 +29,7 @@ const PlpDisplayItem = (props: Props) => {
     <TouchableOpacity
       style={styles.container}
       onPress={navigateToProductDetail}>
-      <PlpSlider data={info.item} />
+      <PlpSlider data={info.item} isWishlisted={info.item.isWishlisted} />
       <Text style={[fonts.onest500, styles.name]}>{info.item.name}</Text>
       <Text style={[fonts.onest700, styles.price]}>{info.item.price}</Text>
     </TouchableOpacity>

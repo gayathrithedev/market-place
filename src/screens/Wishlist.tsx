@@ -8,7 +8,7 @@ import PlpDisplayList from '../components/organisms/PlpDisplayList';
 const Wishlist = () => {
   const {products} = useSelector((state: any) => state.wishlist);
   const isEmpty = products?.length === 0;
-  console.log(products, '---------');
+  const wishlistedProducts = products?.filter(item => item.isWishlisted);
   return (
     <View style={styles.container}>
       <CommonHeader title="Wishlist" />
@@ -18,7 +18,7 @@ const Wishlist = () => {
         </View>
       ) : (
         <View style={styles.listContainer}>
-          <PlpDisplayList data={products} />
+          <PlpDisplayList data={wishlistedProducts} />
         </View>
       )}
     </View>

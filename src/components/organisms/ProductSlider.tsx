@@ -66,12 +66,8 @@ const ProductSlider = (props: Props) => {
         autoPlay={isAutoPlay}
         autoPlayInterval={isFast ? 100 : 2000}
         data={data.images}
-        onScrollStart={() => {
-          console.log('===1');
-        }}
-        onScrollEnd={() => {
-          console.log('===2');
-        }}
+        onScrollStart={() => {}}
+        onScrollEnd={() => {}}
         onConfigurePanGesture={g => g.enabled(false)}
         pagingEnabled={isPagingEnabled}
         onSnapToItem={index => setCurrentIndex(index)}

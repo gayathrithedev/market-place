@@ -5,7 +5,7 @@ import {
 } from '../actionTypes/wishlistActionTypes';
 
 const initialState = {
-  products: [],
+  products: plpSectionData,
 };
 
 const wishlistReducer = (state = initialState, action) => {

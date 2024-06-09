@@ -15,10 +15,11 @@ import SkeletonPlaceholder from 'react-native-skeleton-placeholder';
 // types
 type Props = {
   data: any;
+  isWishlisted: boolean;
 };
 
 const PlpSliderItem = (props: Props) => {
-  const {data} = props;
+  const {data, isWishlisted} = props;
 
   const [loading, setLoading] = useState(false);
 
@@ -49,7 +50,7 @@ const PlpSliderItem = (props: Props) => {
         <View style={styles.favIconContainer}>
           <FontAwesomeIcon
             icon={faHeart}
-            color={data.isWishlisted ? colors.red : `${colors.grayLight}50`}
+            color={isWishlisted ? colors.red : `${colors.grayLight}50`}
           />
         </View>
         <View />

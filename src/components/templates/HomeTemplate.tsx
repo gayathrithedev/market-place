@@ -13,6 +13,7 @@ import HomeBanner from '../atoms/HomeBanner';
 import PlpSection from '../molecules/PlpSection';
 import PlpDisplayList from '../organisms/PlpDisplayList';
 import {plpSectionData} from '../../data/plpSectionData';
+import {useSelector} from 'react-redux';
 
 // types
 type Props = {
@@ -20,6 +21,7 @@ type Props = {
 };
 
 const HomeTemplate = (props: Props) => {
+  const {products} = useSelector((state: any) => state.wishlist);
   const {data} = props;
   return (
     <ScrollView style={styles.container}>
@@ -37,7 +39,7 @@ const HomeTemplate = (props: Props) => {
         <PlpSection />
       </View>
       <View style={styles.searchBarContainer}>
-        <PlpDisplayList data={plpSectionData} />
+        <PlpDisplayList data={products} />
       </View>
     </ScrollView>
   );

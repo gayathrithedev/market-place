@@ -29,16 +29,21 @@ const ProductDetail = () => {
   const {data} = params;
 
   const {products} = useSelector((state: any) => state.wishlist);
+
   const dispatch = useDispatch();
-  const filterProduct = products.filter(item => item.id === data.id);
-  const isWishlisted = filterProduct.length > 0;
+
+  const isWishlisted = data.isWishlisted;
 
   const addOrRemoveToWishlist = () => {
     if (isWishlisted) {
-      const filterProducts = products.filter(
-        item => item.isWishlisted !== data.isWishlisted,
-      );
-      dispatch(removeWishlist(filterProducts));
+      const updateProducts = products.map(item => {
+        if (item.id === data.id) {
+          item.isWishlisted = false;
+        } else {
+          return item;
+        }
+      });
+      dispatch(removeWishlist(updateProducts));
     } else {
       const updateProducts = [...products, data];
       dispatch(addToWishlist(updateProducts));
@@ -52,7 +57,7 @@ const ProductDetail = () => {
         <CommonHeader
           title={data.name}
           showCta={true}
-          isWishlisted={data.isWishlisted}
+          isWishlisted={isWishlisted}
           data={data}
           onClickWishList={addOrRemoveToWishlist}
           onClickShare={onShare}

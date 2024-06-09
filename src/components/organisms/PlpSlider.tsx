@@ -13,10 +13,11 @@ import PlpSliderItem from '../molecules/PlpSliderItem';
 // types
 type Props = {
   data: any;
+  isWishlisted: boolean;
 };
 
 const PlpSlider = (props: Props) => {
-  const {data} = props;
+  const {data, isWishlisted} = props;
   const windowWidth = useWindowDimensions().width / 2;
   const scrollOffsetValue = useSharedValue<number>(0);
   const [isVertical, setIsVertical] = React.useState(false);
@@ -48,16 +49,14 @@ const PlpSlider = (props: Props) => {
       autoPlay={isAutoPlay}
       autoPlayInterval={isFast ? 100 : 2000}
       data={data.images}
-      onScrollStart={() => {
-        console.log('===1');
-      }}
-      onScrollEnd={() => {
-        console.log('===2');
-      }}
+      onScrollStart={() => {}}
+      onScrollEnd={() => {}}
       onConfigurePanGesture={g => g.enabled(false)}
       pagingEnabled={true}
       onSnapToItem={index => console.log('current index:', index)}
-      renderItem={({index, item}) => <PlpSliderItem data={item} />}
+      renderItem={({index, item}) => (
+        <PlpSliderItem data={item} isWishlisted={isWishlisted} />
+      )}
     />
   );
 };
