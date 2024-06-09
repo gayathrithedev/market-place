@@ -30,7 +30,7 @@ const ProductDetail = () => {
 
   const {products} = useSelector((state: any) => state.wishlist);
   const dispatch = useDispatch();
-  const filterProduct = products.filter(item => item === data.id);
+  const filterProduct = products.filter(item => item.id === data.id);
   const isWishlisted = filterProduct.length > 0;
 
   const addOrRemoveToWishlist = () => {
@@ -38,10 +38,10 @@ const ProductDetail = () => {
       const filterProducts = products.filter(
         item => item.isWishlisted !== data.isWishlisted,
       );
-      removeWishlist(filterProducts);
+      dispatch(removeWishlist(filterProducts));
     } else {
-      const updateProducts = [...products, data.id];
-      addToWishlist(updateProducts);
+      const updateProducts = [...products, data];
+      dispatch(addToWishlist(updateProducts));
     }
   };
   const onShare = () => {};
